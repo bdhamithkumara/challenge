@@ -1,7 +1,7 @@
 import { db } from '../db.js';
 
 export const getAllComments = (_, res) => {
-    const q = "SELECT * FROM userdata";
+    const q = "SELECT * FROM userdata ORDER BY id DESC";
 
     db.query(q, (err, data) => {
         if (err) return res.json(err);
@@ -25,9 +25,6 @@ export const addComment = (req, res) => {
         return res.status(200).json("insert done");
     });
 };
-
-
-//update upvote
 
 export const updateUpvote = (req, res) => {
     const q = "UPDATE userdetails set `votevalue` = ?  where `id` = ? "
