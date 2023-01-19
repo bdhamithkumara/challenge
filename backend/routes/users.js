@@ -1,8 +1,12 @@
 import express from "express";
-import {getUsers} from '../controllers/user.js';
+import {getAllComments,addComment,updateUpvote} from '../controllers/user.js';
 
 const router = express.Router();
 
-router.get("/",getUsers);
+router.get("/",getAllComments);
+
+router.post("/",addComment);
+
+router.put("/:id",updateUpvote);
 
 export default router;
